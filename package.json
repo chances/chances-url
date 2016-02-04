@@ -1,0 +1,33 @@
+{
+  "name": "chances-url",
+  "version": "1.0.0",
+  "description": "A simple URL aliasing service for chancesnow.me",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha --check-leaks",
+    "start": "pm2 start app.js --name 'url' --watch",
+    "stop": "pm2 stop --watch url"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chances/chances-url.git"
+  },
+  "keywords": [
+    "url",
+    "shortener",
+    "service",
+    "micro-service"
+  ],
+  "author": "Chance Snow <git@chancesnow.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chances/chances-url/issues"
+  },
+  "homepage": "http://api.chancesnow.me/url/create",
+  "dependencies": {
+    "csv": "^0.4.6",
+    "express": "^4.13.4",
+    "file-exists": "^1.0.0",
+    "mkdirp": "^0.5.1"
+  }
+}

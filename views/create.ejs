@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>URL Shortener &middot; Chance Snow</title>
+
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://chancesnow.me/assets/images/touch/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="180x180" href="http://chancesnow.me/assets/images/touch/apple-touch-icon-180-precomposed.png">
+  <!--[if IE]><link rel="shortcut icon" href="http://chancesnow.me/assets/favicon.ico"><![endif]-->
+  <link rel="icon" href="http://chancesnow.me/assets/favicon.png">
+
+  <style>
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+  </style>
+</head>
+<body>
+  <h1>URL Shortener</h1>
+  <form action="/url/create" method="post">
+    <label for="url">URL:</label>
+    <input type="text" id="url" name="url" />
+    <label for="alias">Alias:</label>
+    <input type="text" id="alias" name="alias" />
+    <input type="submit" value="Create" />
+  </form>
+  <h2>Shortened URLs</h2>
+  <% if (db.length > 0) { %>
+  <table>
+    <thead>
+      <td>Alias</td>
+      <td>URL</td>
+    </thead>
+    <tbody>
+    <% db.forEach(function(record) { %>
+      <tr>
+        <td><%= record[0] %></td>
+        <td><%= record[1] %></td>
+      </tr>
+    <% }); %>
+    </tbody>
+  </table>
+  <% } else { %>
+  <p>No shortened URLs exist</p>
+  <% } %>
+</body>
+</html>
